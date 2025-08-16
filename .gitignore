@@ -1,0 +1,7 @@
+# Ignore any local side development files
+**/.vscode
+**/.DS_Store
+
+# Ignore any Docker Secrets, Environment Files
+**/secret.*
+**/.env
