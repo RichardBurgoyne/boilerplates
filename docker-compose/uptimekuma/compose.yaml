@@ -1,0 +1,31 @@
+
+volumes:
+  uptimekuma:
+    driver: local
+services:
+  uptimekuma:
+    container_name: uptimekuma
+    image: louislam/uptime-kuma:1
+    ports:
+      - 3001:3001
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - uptimekuma:/app/data
+#      - /var/run/docker.sock:/var/run/docker.sock:ro #Optional if you plan to use the docker API. 
+    restart: unless-stopped
+# Traefik Labels
+#    labels:
+#      - traefik.enable=true
+#      - traefik.docker.network=traefik-network
+#      - traefik.http.routers.uptimekuma-https.rule=Host(`uptime.yourdomain.com`)
+#      - traefik.http.routers.uptimekuma-https.entrypoints=websecure
+#      - traefik.http.routers.uptimekuma-https.tls=true
+#      - traefik.http.routers.uptimekuma-https.tls.certresolver=production
+#      - traefik.http.routers.uptimekuma-https.service=uptimekuma-svc
+#      - traefik.http.services.uptimekuma-svc.loadBalancer.server.port=3001
+#    networks:
+#      - traefik-network  
+#networks:S
+#  traefik-network:
+#    external: true
