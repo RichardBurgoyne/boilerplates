@@ -1,0 +1,29 @@
+volumes:
+  myspeed:
+    driver: local
+services:
+  myspeed:
+    container_name: myspeed
+    image: germannewsmaker/myspeed
+    ports:
+      - 5216:5216
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - myspeed:/myspeed/data
+    restart: unless-stopped
+# Traefik Labels
+#    labels:
+#      - traefik.enable=true
+#      - traefik.docker.network=traefik-network
+#      - traefik.http.routers.myspeed-https.rule=Host(`myspeed.yourdomain.com`)
+#      - traefik.http.routers.myspeed-https.entrypoints=websecure
+#      - traefik.http.routers.myspeed-https.tls=true
+#      - traefik.http.routers.myspeed-https.tls.certresolver=production
+#      - traefik.http.routers.myspeed-https.service=myspeed-svc
+#      - traefik.http.services.myspeed-svc.loadBalancer.server.port=5216
+#    networks:
+#      - traefik-network  
+#networks:
+#  traefik-network:
+#    external: true

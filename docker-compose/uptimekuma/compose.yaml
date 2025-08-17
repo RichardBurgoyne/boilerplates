@@ -26,6 +26,6 @@ services:
 #      - traefik.http.services.uptimekuma-svc.loadBalancer.server.port=3001
 #    networks:
 #      - traefik-network  
-#networks:S
+#networks:
 #  traefik-network:
 #    external: true
